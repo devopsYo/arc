@@ -199,5 +199,5 @@ template:
 ## to help it finish RoleBinding with the right service account.
 ## Note: if your controller is installed to only watch a single namespace, you have to pass these values explicitly.
 controllerServiceAccount:
-  namespace: arc-system
+  namespace: arc-systems
   name: test-arc-gha-runner-scale-set-controller
