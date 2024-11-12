@@ -187,6 +187,7 @@ template:
   ##                 requests:
   ##                   storage: 1Gi
   spec:
+    restartPolicy: Always
     containers:
       - name: runner
         image: ghcr.io/actions/actions-runner:latest
