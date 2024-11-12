@@ -97,6 +97,8 @@ priorityClassName: ""
 flags:
   ## Log level can be set here with one of the following values: "debug", "info", "warn", "error".
   ## Defaults to "debug".
+  excludeLabelPropagationPrefixes:
+    - "argocd.argoproj.io/instance"
   logLevel: "debug"
   ## Log format can be set with one of the following values: "text", "json"
   ## Defaults to "text"
