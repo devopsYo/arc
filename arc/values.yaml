@@ -10,12 +10,13 @@ gha-runner-scale-set-controller:
   replicaCount: 1
   
   image:
-    repository: "ghcr.io/actions/gha-runner-scale-set-controller"
+    repository: "dbank-public-docker-ghcr-remote.jfrog.io/actions/gha-runner-scale-set-controller"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: "0.9.3"
   
-  imagePullSecrets: []
+  imagePullSecrets: 
+    - name: pre-defined-secret
   nameOverride: ""
   fullnameOverride: ""
   
