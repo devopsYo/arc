@@ -191,7 +191,9 @@ gha-runner-scale-set:
       restartPolicy: Always
       containers:
         - name: runner
-          image: ghcr.io/actions/actions-runner:2.320.0
+          image:  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.320.0 #ghcr.io/actions/actions-runner:2.320.0
+          imagePullSecrets:
+            - name: pre-defined-secret
           command: ["/home/runner/run.sh"]
   
   ## Optional controller service account that needs to have required Role and RoleBinding
