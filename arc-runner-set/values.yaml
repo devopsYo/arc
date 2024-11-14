@@ -194,7 +194,7 @@ gha-runner-scale-set:
           image:  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.320.0 #ghcr.io/actions/actions-runner:2.320.0
           command: ["/home/runner/run.sh"]
       imagePullSecrets:
-        - name: pre-defined-secrete
+        - name: pre-defined-secret
   
   ## Optional controller service account that needs to have required Role and RoleBinding
   ## to operate this gha-runner-scale-set installation.
