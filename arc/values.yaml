@@ -13,7 +13,7 @@ gha-runner-scale-set-controller:
     repository: "ghcr.io/actions/gha-runner-scale-set-controller"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "0.9.3"
   
   imagePullSecrets: []
   nameOverride: ""
