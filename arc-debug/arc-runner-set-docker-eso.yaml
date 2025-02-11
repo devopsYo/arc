@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: arc-runner-set-docker-eso
+  namespace: arc-debug
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: gcp 
+    kind: ClusterSecretStore      
+  target:
+    name: arc-runner-set-docker-secret
+    template:
+      type: kubernetes.io/dockerconfigjson
+    creationPolicy: Owner
+  data:
+    - secretKey: .dockerconfigjson
+      remoteRef:
+        conversionStrategy: Default
+        decodingStrategy: Auto
+        key: arc-runner-set-docker-secret
+        metadataPolicy: None
