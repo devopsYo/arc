@@ -14,7 +14,7 @@ spec:
         runAsUser: 0   
         runAsGroup: 0  
     - name: curl
-      image: curlimage/curl:8.11.1
+      image: curlimages/curl:8.11.1
       command: [ "sleep", "infinity" ]
       stdin: true
       tty: true
