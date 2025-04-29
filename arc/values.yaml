@@ -10,14 +10,12 @@ gha-runner-scale-set-controller:
   replicaCount: 1
   
   image:
-    repository: "oci://ghcr.io/actions/gha-runner-scale-set-controller"
+    repository: "ghcr.io/actions/gha-runner-scale-set-controller"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.9.3"
-    #tag: "0.10.1"
+    tag: "0.10.1"
   
-  imagePullSecrets: 
-    - name: arc-docker-secret
+  imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
   
@@ -130,7 +128,7 @@ gha-runner-scale-set-controller:
     ##   pending / running jobs have completed.
     ##   This can lead to a longer time to apply the change but it will ensure
     ##   that you don't have any overprovisioning of runners.
-    updateStrategy: "eventual"
+    updateStrategy: "immediate"
   
     ## Defines a list of prefixes that should not be propagated to internal resources.
     ## This is useful when you have labels that are used for internal purposes and should not be propagated to internal resources.
