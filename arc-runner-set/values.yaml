@@ -193,7 +193,7 @@ gha-runner-scale-set:
       restartPolicy: Always
       containers:
         - name: runner
-          image: ghcr.io/actions/actions-runner:latest  #  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.321.0   ghcr.io/actions/actions-runner:2.320.0
+          image: ghcr.io/actions/actions-runner:2.321.0  #  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.321.0   ghcr.io/actions/actions-runner:2.320.0
           command: ["/home/runner/run.sh"]
           resources:
             requests:
@@ -207,8 +207,6 @@ gha-runner-scale-set:
           #    value: https://10.66.128.10
           #  - name: NO_PROXY
           #    value: 10.66.0.0/16
-      imagePullSecrets:
-        - name: arc-runner-set-docker-secret
   
   ## Optional controller service account that needs to have required Role and RoleBinding
   ## to operate this gha-runner-scale-set installation.
