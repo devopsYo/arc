@@ -21,22 +21,23 @@ gha-runner-scale-set:
   ##   > kubectl create secret generic pre-defined-secret --namespace=my_namespace --from-literal=github_token='ghp_your_pat'
   ##   For a pre-defined secret using GitHub App, the secret needs to be created like this:
   ##   > kubectl create secret generic pre-defined-secret --namespace=my_namespace --from-literal=github_app_id=123456 --from-literal=github_app_installation_id=654321 --from-literal=github_app_private_key='-----BEGIN CERTIFICATE-----*******'
-  githubConfigSecret: arc-runner-set-secret
+  githubConfigSecret:
+    github_token: "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"
   
   ## proxy can be used to define proxy settings that will be used by the
   ## controller, the listener and the runner of this scale set.
   #
-  proxy:
-    http:
-      url: http://10.66.128.10
-      # credentialSecretRef: proxy-auth # a secret with `username` and `password` keys
-    https:
-      url: http://10.66.128.10:443
-      # credentialSecretRef: proxy-auth # a secret with `username` and `password` keys
-    noProxy:
-      #- 160.88.10.44
-      - 10.65.106.10
-      - 10.66.0.0
+  #proxy:
+  #  http:
+  #    url: http://10.66.128.10
+  #    # credentialSecretRef: proxy-auth # a secret with `username` and `password` keys
+  #  https:
+  #    url: http://10.66.128.10:443
+  #    # credentialSecretRef: proxy-auth # a secret with `username` and `password` keys
+  #  noProxy:
+  #    #- 160.88.10.44
+  #    - 10.65.106.10
+  #    - 10.66.0.0
   
   ## maxRunners is the max number of runners the autoscaling runner set will scale up to.
   maxRunners: 5
@@ -192,7 +193,7 @@ gha-runner-scale-set:
       restartPolicy: Always
       containers:
         - name: runner
-          image: ghcr.io/actions/actions-runner:2.320.0  #  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.321.0   ghcr.io/actions/actions-runner:2.320.0
+          image: ghcr.io/actions/actions-runner:latest  #  dbank-public-docker-ghcr-remote.jfrog.io/actions/actions-runner:2.321.0   ghcr.io/actions/actions-runner:2.320.0
           command: ["/home/runner/run.sh"]
           resources:
             requests:
