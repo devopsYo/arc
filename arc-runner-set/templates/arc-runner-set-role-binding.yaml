@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: controller-secret-access
+subjects:
+  - kind: ServiceAccount
+    name: arc-gha-rs-controller
+    namespace: cmdo-arc-systems
+roleRef:
+  kind: Role
+  name: allow-controller-read-secrets
+  apiGroup: rbac.authorization.k8s.io
