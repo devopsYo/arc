@@ -364,7 +364,7 @@ gha-runner-scale-set:
   ## Note: if your controller is installed to only watch a single namespace, you have to pass these values explicitly.
   controllerServiceAccount:
     namespace: cmdo-arc-system
-    name: arc-runner-set-gha-rs-no-permission
+    name: arc-runner-set-84ddbcd5-listener
     #name: test-arc-gha-runner-scale-set-controller
   
   # Overrides the default `.Release.Namespace` for all resources in this chart.
