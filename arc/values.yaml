@@ -13,7 +13,7 @@ gha-runner-scale-set-controller:
     repository: "ghcr.io/actions/gha-runner-scale-set-controller"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.10.1"
+    tag: ""
   
   imagePullSecrets: []
   nameOverride: ""
@@ -34,12 +34,11 @@ gha-runner-scale-set-controller:
     # Specifies whether a service account should be created for running the controller pod
     create: true
     # Annotations to add to the service account
-    annotations: 
-      kubernetes.io/service-account.name: "arc-gha-rs-controller"
+    annotations: {}
     # The name of the service account to use.
     # If not set and create is true, a name is generated using the fullname template
     # You can not use the default service account for this.
-    name: "arc-gha-rs-controller"
+    name: ""
   
   podAnnotations: {}
   
@@ -56,14 +55,7 @@ gha-runner-scale-set-controller:
   # runAsNonRoot: true
   # runAsUser: 1000
   
-  #resources: {}
-  resources:
-    requests:
-      cpu: "500m"
-      memory: "512Mi"
-    limits:
-      cpu: "1000m"
-      memory: "1024Mi"
+  resources: {}
   ## We usually recommend not to specify default resources and to leave this as a conscious
   ## choice for the user. This also increases chances charts run on environments with little
   ## resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -98,10 +90,10 @@ gha-runner-scale-set-controller:
   ## This will disable metrics.
   ##
   ## To enable metrics, uncomment the following lines.
-  metrics:
-    controllerManagerAddr: ":8080"
-    listenerAddr: ":8080"
-    listenerEndpoint: "/metrics"
+  # metrics:
+  #   controllerManagerAddr: ":8080"
+  #   listenerAddr: ":8080"
+  #   listenerEndpoint: "/metrics"
   
   flags:
     ## Log level can be set here with one of the following values: "debug", "info", "warn", "error".
@@ -114,6 +106,11 @@ gha-runner-scale-set-controller:
     ## Restricts the controller to only watch resources in the desired namespace.
     ## Defaults to watch all namespaces when unset.
     # watchSingleNamespace: ""
+  
+    ## The maximum number of concurrent reconciles which can be run by the EphemeralRunner controller.
+    # Increase this value to improve the throughput of the controller.
+    # It may also increase the load on the API server and the external service (e.g. GitHub API).
+    runnerMaxConcurrentReconciles: 2
   
     ## Defines how the controller should handle upgrades while having running jobs.
     ##
@@ -140,3 +137,9 @@ gha-runner-scale-set-controller:
     excludeLabelPropagationPrefixes:
       - "argocd.argoproj.io/instance"
   
+  # Overrides the default `.Release.Namespace` for all resources in this chart.
+  namespaceOverride: ""
+  
+  ## Defines the K8s client rate limiter parameters.
+    # k8sClientRateLimiterQPS: 20
+    # k8sClientRateLimiterBurst: 30
