@@ -13,5 +13,5 @@ metadata:
   name: allow-create-roles
 rules:
   - apiGroups: ["rbac.authorization.k8s.io"]
-    resources: ["roles"]
+    resources: ["roles", "rolebindings"]
     verbs: ["create"]
