@@ -2,6 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: controller-secret-access
+  namespace: cmdo-arc-runners
 subjects:
   - kind: ServiceAccount
     name: arc-gha-rs-controller
@@ -15,6 +16,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: allow-arc-controller-to-create-roles
+  namespace: cmdo-arc-runners
 subjects:
   - kind: ServiceAccount
     name: arc-gha-rs-controller
