@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: kubectl-helper
-  namespace: arc-debug
 spec:
   containers:
     - name: kubectl
