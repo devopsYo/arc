@@ -1,6 +1,6 @@
 dependencies:
 - name: gha-runner-scale-set
-  repository: oci://ghcr.io/actions/actions-runner-controller-charts
+  repository: oci://dbank-cmdo-devops-helm-ghcr-remote.jfrog.io/actions/actions-runner-controller-charts
   version: 0.12.1
-digest: sha256:e03615606dbcf2e8d4a4d0dbe95d100afb7eca6d52bd53d80414d33966fd07fc
-generated: "2025-07-08T21:32:59.0837842+03:00"
+digest: sha256:5476ce2fdfea033b2e685613e00ef1f3600711110032d91f774e1cbda7abacfb
+generated: "2025-08-26T21:27:45.5191209+03:00"

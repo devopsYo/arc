@@ -352,10 +352,21 @@ gha-runner-scale-set:
     ##                 requests:
     ##                   storage: 1Gi
     spec:
+      restartPolicy: Always
       containers:
         - name: runner
           image: ghcr.io/actions/actions-runner:latest
           command: ["/home/runner/run.sh"]
+          env:
+            - name: RUNNER_ALLOW_RUNASROOT
+              value: "1"
+          securityContext:
+            runAsUser: 0
+            privileged: true
+            capabilities:
+              add:
+                - CHOWN
+                - DAC_OVERRIDE
   ## Optional controller service account that needs to have required Role and RoleBinding
   ## to operate this gha-runner-scale-set installation.
   ## The helm chart will try to find the controller deployment and its service account at installation time.
